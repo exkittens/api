@@ -6,7 +6,6 @@ defmodule Api.Application do
   def start(_type, _args) do
     children = [
       Api.Repo,
-      ApiWeb.Telemetry,
       {Phoenix.PubSub, name: Api.PubSub},
       ApiWeb.Endpoint
     ]
