@@ -7,5 +7,9 @@ defmodule ApiWeb.Router do
 
   scope "/api", ApiWeb do
     pipe_through :api
+
+    scope "/v1", V1 do
+      get "/health", HealthController, :index
+    end
   end
 end
