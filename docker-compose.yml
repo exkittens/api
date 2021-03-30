@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13.2
+    volumes:
+      - volume-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      timeout: 5s
+      retries: 5
+    networks:
+      - default
+  api:
+    image: exkittens
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      # - .:/app
+      - volume-app-data:/app
+    ports:
+      - "4000:4000"
+    networks:
+      - default
+volumes:
+  volume-app-data:
+    external: true
+  volume-postgres-data:
+    external: true

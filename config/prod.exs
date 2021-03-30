@@ -4,14 +4,12 @@ use Mix.Config
 config :api, Api.Repo,
   username: System.get_env("POSTGRES_USER") || "postgres",
   password: System.get_env("POSTGRES_PASSWORD"),
-  database: System.get_env("POSTGRES_DATABASE") || "exkittens_dev",
+  database: System.get_env("POSTGRES_DATABASE") || "exkittens_production",
   hostname: System.get_env("POSTGRES_HOST") || "localhost",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: 20
 
 config :api, ApiWeb.Endpoint,
   http: [port: 4000],
-  debug_errors: true,
   code_reloader: true,
   check_origin: false,
   watchers: []

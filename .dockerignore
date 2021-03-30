@@ -1,0 +1,8 @@
+_build
+deps
+/.fetch
+erl_crash.dump
+*.ez
+api-*.tar
+.elixir_ls
+.env

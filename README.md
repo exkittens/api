@@ -1,6 +1,6 @@
 ## Project Setup
 
-### Install Elixir, Phoenix, PostgreSQL
+### Install docker
 ### Clone the repository
 ```shell
 git clone git@github.com:exkittens/api.git
@@ -8,17 +8,17 @@ cd api
 ```
 ### Update ENV variables
 ```shell
+cp .env.example .env
 vi .env
-source .env
 ```
-### Install dependencies and setup database
+### Build image
 ```shell
-mix deps.get
-mix setup
+make build
 ```
-### Start app
+### Start app using docker compose/swarm
 ```shell
-mix phx.server
+docker-compose up
+docker stack deploy -c docker-compose.yml exkittens
 ```
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
