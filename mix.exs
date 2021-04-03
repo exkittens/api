@@ -31,6 +31,7 @@ defmodule Api.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:envy, "~> 1.1.1"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end

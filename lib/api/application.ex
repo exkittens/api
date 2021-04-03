@@ -4,6 +4,10 @@ defmodule Api.Application do
   use Application
 
   def start(_type, _args) do
+    unless Mix.env == :prod do
+      Envy.auto_load
+    end
+
     children = [
       Api.Repo,
       {Phoenix.PubSub, name: Api.PubSub},
