@@ -9,7 +9,7 @@ services:
     env_file:
       - .env
     healthcheck:
-      test: ["CMD", "pg_isready"]
+      test: ["CMD", "pg_isready -U admin"]
       timeout: 5s
       retries: 5
     networks:
@@ -21,8 +21,8 @@ services:
     env_file:
       - .env
     volumes:
-      # - .:/app
-      - volume-app-data:/app
+      - .:/app
+      # - volume-app-data:/app
     ports:
       - "4000:4000"
     networks:

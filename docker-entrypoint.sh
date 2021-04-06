@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mix deps.get --only prod
+mix deps.get
 
 /wait
 
